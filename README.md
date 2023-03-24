@@ -2,6 +2,29 @@
 
 This repository is for me to track my configuration files for Neovim. Users are welcome to use and modify the configuration files as they see fit.
 
+The following folder structure is located within the ``.config`` folder.
+```
+nvim
+├── after
+│   └── plugin
+│       ├── fugitive.lua
+│       ├── harpoon.lua
+│       ├── lsp.lua
+│       ├── material.lua
+│       ├── telescope.lua
+│       ├── treesitter.lua
+│       └── undotree.lua
+├── init.lua
+├── lua
+│   └── wkb
+│       ├── init.lua
+│       ├── packer.lua
+│       ├── remap.lua
+│       └── set.lua
+└── plugin
+    └── packer_compiled.lua
+```
+
 ## Installation
 
 To use my configuration files for Neovim, you will need to follow these steps:
