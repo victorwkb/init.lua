@@ -69,4 +69,7 @@ return require('packer').startup(function(use)
       end,
   }
 
+  -- Wakatime tracker
+    use('wakatime/vim-wakatime')
+
 end)
