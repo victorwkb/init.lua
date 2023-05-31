@@ -32,4 +32,7 @@ vim.opt.colorcolumn = "80"
 
 vim.o.clipboard = "unnamedplus"
 
+vim.g.python3_host_prog = '/usr/bin/python3'
+
 vim.g.mapleader= " "
+
