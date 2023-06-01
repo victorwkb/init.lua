@@ -20,8 +20,17 @@ return require('packer').startup(function(use)
       as = 'material',
   })
 
+  -- Lualine
+  use {
+      'hoob3rt/lualine.nvim',
+      requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
+
   -- Treesitter
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+
+  -- Context Treesitter
+  use('nvim-treesitter/nvim-treesitter-context')
   
   -- Harpoon
   use('theprimeagen/harpoon')

@@ -5,11 +5,13 @@ This repository is for me to track my configuration files for Neovim. Users are 
 The following folder structure is located within the ``.config`` folder.
 ```
 nvim
+├── README.md
 ├── after
 │   └── plugin
 │       ├── fugitive.lua
 │       ├── harpoon.lua
 │       ├── lsp.lua
+│       ├── lualine.lua
 │       ├── material.lua
 │       ├── telescope.lua
 │       ├── treesitter.lua
