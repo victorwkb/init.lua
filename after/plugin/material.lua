@@ -1,5 +1,4 @@
 require('material').setup({
-
     contrast = {
         terminal = true, -- Enable contrast for the built-in terminal
         sidebars = true, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
@@ -12,6 +11,7 @@ require('material').setup({
     plugins = {
         "nvim-cmp",
         "telescope",
+        "indent-blankline",
     },
 
     disable = {

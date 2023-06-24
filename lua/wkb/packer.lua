@@ -4,91 +4,112 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-  -- Telescope
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+    -- Telescope
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        -- or                            , branch = '0.1.x',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
 
-  -- Material Theme
-  use({
-      'marko-cerovac/material.nvim',
-      as = 'material',
-  })
+    -- Material Theme
+    use({
+        'marko-cerovac/material.nvim',
+        as = 'material',
+    })
 
-  -- Lualine
-  use {
-      'hoob3rt/lualine.nvim',
-      requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
+    -- Lualine
+    use {
+        'hoob3rt/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
 
-  -- Treesitter
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    -- Treesitter
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
-  -- Context Treesitter
-  use('nvim-treesitter/nvim-treesitter-context')
-  
-  -- Harpoon
-  use('theprimeagen/harpoon')
+    -- Context Treesitter
+    use('nvim-treesitter/nvim-treesitter-context')
 
-  -- Undotree
-  use('mbbill/undotree')
+    -- Harpoon
+    use('theprimeagen/harpoon')
 
-  -- Fugitive
-  use('tpope/vim-fugitive')
+    -- Undotree
+    use('mbbill/undotree')
 
-  -- LSP
-  use {
-      'VonHeikemen/lsp-zero.nvim',
-      branch = 'v1.x',
-      requires = {
-          -- LSP Support
-          {'neovim/nvim-lspconfig'},             -- Required
-          {'williamboman/mason.nvim'},           -- Optional
-          {'williamboman/mason-lspconfig.nvim'}, -- Optional
+    -- Fugitive
+    use('tpope/vim-fugitive')
 
-          -- Autocompletion
-          {'hrsh7th/nvim-cmp'},         -- Required
-          {'hrsh7th/cmp-nvim-lsp'},     -- Required
-          {'hrsh7th/cmp-buffer'},       -- Optional
-          {'saadparwaiz1/cmp_luasnip'}, -- Optional
-          {'hrsh7th/cmp-nvim-lua'},     -- Optional
+    -- LSP
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        requires = {
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' }, -- Required
+            {
+                'williamboman/mason.nvim',
+                run = function()
+                    pcall(vim.cmd, 'MasonUpdate')
+                end,
+            },
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
-          -- Snippets
-          {'L3MON4D3/LuaSnip'},             -- Required
-          {'rafamadriz/friendly-snippets'}, -- Optional
-      }
-  }
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },             -- Required
+            { 'hrsh7th/cmp-nvim-lsp' },         -- Required
+            { 'L3MON4D3/LuaSnip' },             -- Required
+            { 'saadparwaiz1/cmp_luasnip' },     -- Optional
+            { 'rafamadriz/friendly-snippets' }, -- Optional
+            { 'hrsh7th/cmp-buffer' },           -- Optional
+            { 'hrsh7th/cmp-nvim-lua' },         -- Optional
+        }
+    }
 
-  -- Copilot
-  use {
-      "zbirenbaum/copilot.lua",
-      cmd = "Copilot",
-      event = "InsertEnter",
-      config = function()
-          require("copilot").setup({
-              suggestion = {
-                  auto_trigger = true,
-                  keymap = {
-                      accept = false,
-                  },
-              },
-          })
-          vim.keymap.set('i', '<Tab>', function()
-              if require("copilot.suggestion").is_visible() then
-                  require("copilot.suggestion").accept()
-              else
-                  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
-              end
-          end, { desc = "Super Tab" })
-      end,
-  }
+    -- Copilot
+    use {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                suggestion = {
+                    auto_trigger = true,
+                    keymap = {
+                        accept = false,
+                    },
+                },
+            })
+            vim.keymap.set('i', '<Tab>', function()
+                if require("copilot.suggestion").is_visible() then
+                    require("copilot.suggestion").accept()
+                else
+                    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+                end
+            end, { desc = "Super Tab" })
+        end,
+    }
 
-  -- Wakatime tracker
+    -- Null-ls
+    use({
+        'jose-elias-alvarez/null-ls.nvim',
+        requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    })
+
+    -- Trouble
+    use({
+        'folke/trouble.nvim',
+        config = function()
+            require('trouble').setup {
+                icons = false,
+            }
+        end
+    })
+
+    -- Indent-blankline
+    use('lukas-reineke/indent-blankline.nvim')
+
+    -- Wakatime tracker
     use('wakatime/vim-wakatime')
-
 end)

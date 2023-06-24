@@ -3,11 +3,13 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
 lsp.ensure_installed({
-    pyright
+    'pyright',
+    'lua_ls',
+    'sqlls',
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('lua-language-server', {
+lsp.configure('lua_ls', {
     settings = {
         Lua = {
             diagnostics = {
@@ -44,7 +46,6 @@ lsp.set_preferences({
     }
 })
 
-
 lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr, remap = false}
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -64,3 +65,14 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true
 })
+
+local null_ls = require('null-ls')
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.black,
+        -- null_ls.builtins.diagnostics.mypy,
+        null_ls.builtins.diagnostics.ruff,
+    }
+})
+
