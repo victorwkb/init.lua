@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
 
     -- Telescope
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim', tag = '0.1.4',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
@@ -27,8 +27,13 @@ return require('packer').startup(function(use)
     }
 
     -- Treesitter
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+    }
     -- Context Treesitter
     use('nvim-treesitter/nvim-treesitter-context')
 
@@ -92,10 +97,10 @@ return require('packer').startup(function(use)
     }
 
     -- Null-ls
-    use({
-        'jose-elias-alvarez/null-ls.nvim',
-        requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    })
+--    use({
+--        'jose-elias-alvarez/null-ls.nvim',
+--        requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+--    })
 
     -- Trouble
     use({
