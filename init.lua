@@ -1,1 +1,1 @@
-require("wkb")
+require("config")
