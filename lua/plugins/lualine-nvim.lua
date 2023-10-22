@@ -1,16 +1,13 @@
 local config = function()
-	local theme = require("lualine.themes.dracula")
-
 	require("lualine").setup({
 		options = {
             icons_enabled = true,
-			theme = theme,
+			theme = "catppuccin",
 			globalstatus = true,
 		},
 		tabline = {
             lualine_a = { "mode" },
 			lualine_b = { "buffers" },
-            lualine_c = { "filename" },
             lualine_x = { "encoding", "fileformat", "filetype" },
 			lualine_y = { "progress" },
 			lualine_z = { "location" },

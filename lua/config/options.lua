@@ -20,8 +20,9 @@ opt.relativenumber = true
 opt.termguicolors = true
 opt.updatetime = 50
 opt.isfname:append("@-@")
-opt.colorcolumn = "80"
+opt.colorcolumn = "100"
 opt.signcolumn = "yes"
+opt.cmdheight = 1
 opt.scrolloff = 8
 opt.completeopt = "menuone,noinsert,noselect"
 
@@ -40,3 +41,7 @@ opt.clipboard:append("unnamed")
 opt.clipboard:append("unnamedplus")
 opt.modifiable = true
 opt.guicursor = ""
+
+vim.diagnostic.config({
+    virtual_text = true
+})
