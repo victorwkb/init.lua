@@ -43,5 +43,5 @@ opt.modifiable = true
 opt.guicursor = ""
 
 vim.diagnostic.config({
-    virtual_text = true
+	virtual_text = true,
 })

@@ -3,9 +3,9 @@ return {
 	lazy = false,
 	config = function()
 		require("lspsaga").setup({
-            ui = {
-                kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
-            },
+			ui = {
+				kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+			},
 			-- keybinds for navigation in lspsaga window
 			move_in_saga = { prev = "<C-k>", next = "<C-j>" },
 			-- use enter to open file with finder
@@ -20,6 +20,6 @@ return {
 	end,
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
-        "nvim-tree/nvim-web-devicons",
+		"nvim-tree/nvim-web-devicons",
 	},
 }

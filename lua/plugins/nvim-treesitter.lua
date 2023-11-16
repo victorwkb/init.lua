@@ -13,12 +13,17 @@ local config = function()
 		},
 		ensure_installed = {
 			"markdown",
+			"json",
 			"yaml",
 			"bash",
 			"lua",
 			"dockerfile",
 			"gitignore",
 			"python",
+			"javascript",
+			"typescript",
+			"html",
+			"css",
 		},
 		auto_install = true,
 		highlight = {

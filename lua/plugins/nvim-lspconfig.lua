@@ -51,16 +51,45 @@ local config = function()
 		},
 	})
 
+	-- typescript
+	lspconfig.tsserver.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+	})
+
+	-- emmet
+	lspconfig.emmet_ls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = {
+			"html",
+			"css",
+			"typescriptreact",
+			"javascriptreact",
+			"javascript",
+		},
+	})
+
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 	local flake8 = require("efmls-configs.linters.flake8")
 	local black = require("efmls-configs.formatters.black")
+	local eslint_d = require("efmls-configs.linters.eslint_d")
+	local prettier_d = require("efmls-configs.formatters.prettier_d")
 
 	-- configure efm server
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
 			"python",
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+			"markdown",
+			"html",
+			"css",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -74,6 +103,13 @@ local config = function()
 			languages = {
 				lua = { luacheck, stylua },
 				python = { flake8, black },
+				javascript = { eslint_d, prettier_d },
+				javascriptreact = { eslint_d, prettier_d },
+				typescript = { eslint_d, prettier_d },
+				typescriptreact = { eslint_d, prettier_d },
+				markdown = { prettier_d },
+				html = { prettier_d },
+				css = { prettier_d },
 			},
 		},
 	})

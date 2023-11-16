@@ -3,6 +3,12 @@ local opts = {
 		"efm",
 		"pyright",
 		"lua_ls",
+		"tsserver",
+		"html",
+		"cssls",
+		"jsonls",
+		"emmet_ls",
+		"tailwindcss",
 	},
 	automatic_installation = true,
 }

@@ -8,12 +8,11 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv") -- Searched terms in the middle
 vim.keymap.set("n", "N", "Nzzzv") -- Searched terms in the middle
 
-
 -- Copy, paste, delete
 vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 mapkey("<C-c>", "<Esc>", "i")
 mapkey("Q", "<nop>", "n") -- Disable macros
 
