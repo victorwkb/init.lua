@@ -28,8 +28,8 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" }, -- lsp
 				{ name = "luasnip" }, -- snippets
+        { name = "buffer" }, -- text within current buffer
 				{ name = "path" },
-				{ name = "buffer" }, -- text within current buffer
 			}),
 			window = {
 				documentation = cmp.config.window.bordered(),
@@ -50,6 +50,7 @@ return {
 	end,
 	dependencies = {
 		"onsails/lspkind.nvim",
+    "saadparwaiz1/cmp_luasnip",
 		{
 			"L3MON4D3/LuaSnip",
 			-- follow latest release.
@@ -57,6 +58,5 @@ return {
 			-- install jsregexp (optional!).
 			build = "make install_jsregexp",
 		},
-		{ "saadparwaiz1/cmp_luasnip" },
 	},
 }

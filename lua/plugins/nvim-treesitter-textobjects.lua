@@ -1,5 +1,5 @@
 return {
-	"windwp/nvim-ts-autotag",
+	"nvim-treesitter/nvim-treesitter-textobjects",
 	lazy = false,
 	init = function() end,
 }

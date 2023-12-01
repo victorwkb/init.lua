@@ -25,12 +25,14 @@ return {
 				"LineNr",
 				"NonText",
 				"SignColumn",
+        "CursorLine",
 				"CursorLineNr",
+        "StatusLine",
+        "StatusLineNC",
 				"EndOfBuffer",
 				"InsertEnter",
 			},
 			extra_groups = {
-				"CursorLine",
 				"NormalFloat",
 				"TablineFill",
 			}, -- table: additional groups that should be cleared

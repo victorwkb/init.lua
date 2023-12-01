@@ -38,7 +38,6 @@ mapkey("<leader>e", "NvimTreeToggle", "n")
 -- Window Management
 mapkey("<leader>sv", "vsplit", "n") -- Split Vertically
 mapkey("<leader>sh", "split", "n") -- Split Horizontally
-mapkey("<leader>sm", "MaximizerToggle", "n") -- Toggle Minimise
 
 -- Indenting
 mapkey("<", "v", "<gv") -- Shift Indentation to Left
@@ -55,13 +54,21 @@ mapkey("<leader>u", "UndotreeToggle<CR>", "n")
 
 local api = vim.api
 
--- Zen Mode
-api.nvim_set_keymap("n", "<leader>zn", ":TZNarrow<CR>", {})
-api.nvim_set_keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", {})
-api.nvim_set_keymap("n", "<leader>zf", ":TZFocus<CR>", {})
-api.nvim_set_keymap("n", "<leader>zm", ":TZMinimalist<CR>", {})
-api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
+-- True Zen
+-- api.nvim_set_keymap("n", "<leader>zn", ":TZNarrow<CR>", {})
+-- api.nvim_set_keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", {})
+-- api.nvim_set_keymap("n", "<leader>zf", ":TZFocus<CR>", {})
+-- api.nvim_set_keymap("n", "<leader>zm", ":TZMinimalist<CR>", {})
+-- api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
 
 -- Comments
 api.nvim_set_keymap("n", "<C-_>", "gtc", { noremap = false })
 api.nvim_set_keymap("v", "<C-_>", "goc", { noremap = false })
+
+-- Lua
+vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
+vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
+vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
+vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
+vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
+vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)

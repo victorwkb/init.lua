@@ -1,11 +1,12 @@
 local opt = vim.opt
 
 -- Tab / Indentation
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.softtabstop = 4
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.softtabstop = 2
 opt.expandtab = true
 opt.smartindent = true
+opt.smarttab = true
 opt.wrap = false
 
 -- Search
@@ -23,7 +24,7 @@ opt.isfname:append("@-@")
 opt.colorcolumn = "100"
 opt.signcolumn = "yes"
 opt.cmdheight = 1
-opt.scrolloff = 8
+opt.scrolloff = 10
 opt.completeopt = "menuone,noinsert,noselect"
 
 -- Behaviour

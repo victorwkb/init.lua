@@ -2,5 +2,6 @@ return {
 	"lukas-reineke/indent-blankline.nvim",
 	main = "ibl",
 	opts = {},
-	lazy = false,
+  lazy = false,
+  priority = 1000,
 }
