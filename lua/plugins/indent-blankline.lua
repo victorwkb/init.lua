@@ -1,7 +1,11 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
 	main = "ibl",
-	opts = {},
-  lazy = false,
-  priority = 1000,
+	opts = {
+    exclude = {
+      filetypes = { "dashboard" }
+    },
+  },
+	lazy = false,
+	priority = 1000,
 }

@@ -1,4 +1,5 @@
 local mapkey = require("util.keymapper").mapkey
+local api = vim.api
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -31,7 +32,7 @@ mapkey("<leader>bp", "bprevious", "n") -- Prev buffer
 mapkey("<leader>bb", "e #", "n") -- Switch to Other Buffer
 mapkey("<leader>`", "e #", "n") -- Switch to Other Buffer
 
--- Directory Navigatio}n
+-- Directory Navigation
 mapkey("<leader>m", "NvimTreeFocus", "n")
 mapkey("<leader>e", "NvimTreeToggle", "n")
 
@@ -51,15 +52,6 @@ mapkey("<leader>gs", "Git", "n")
 
 -- UndotreeToggle
 mapkey("<leader>u", "UndotreeToggle<CR>", "n")
-
-local api = vim.api
-
--- True Zen
--- api.nvim_set_keymap("n", "<leader>zn", ":TZNarrow<CR>", {})
--- api.nvim_set_keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", {})
--- api.nvim_set_keymap("n", "<leader>zf", ":TZFocus<CR>", {})
--- api.nvim_set_keymap("n", "<leader>zm", ":TZMinimalist<CR>", {})
--- api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
 
 -- Comments
 api.nvim_set_keymap("n", "<C-_>", "gtc", { noremap = false })
