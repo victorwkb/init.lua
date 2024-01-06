@@ -1,5 +1,6 @@
 local mapkey = require("util.keymapper").mapkey
 local api = vim.api
+local map = require("util.trim").map
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -64,3 +65,8 @@ vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document
 vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
 vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
 vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
+
+-- Trim
+map("n", ",m", function()
+    vim.cmd(":%s/\r//g")
+end)
