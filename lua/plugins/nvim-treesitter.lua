@@ -16,6 +16,7 @@ local config = function()
 		},
 		ensure_installed = {
 			"markdown",
+      "markdown_inline",
 			"json",
 			"yaml",
 			"bash",

@@ -6,6 +6,9 @@ return {
 		require("nvim-tree").setup({
       view = {
         adaptive_size = true,
+      },
+      trash = {
+        cmd = "trash",
       }
 		})
 	end,

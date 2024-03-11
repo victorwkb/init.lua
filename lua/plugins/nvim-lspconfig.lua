@@ -75,7 +75,7 @@ local config = function()
 	local stylua = require("efmls-configs.formatters.stylua")
 	local flake8 = require("efmls-configs.linters.flake8")
 	local black = require("efmls-configs.formatters.black")
-	local eslint_d = require("efmls-configs.linters.eslint_d")
+	local eslint = require("efmls-configs.linters.eslint")
 	local prettier_d = require("efmls-configs.formatters.prettier_d")
 
 	-- configure efm server
@@ -103,10 +103,10 @@ local config = function()
 			languages = {
 				lua = { luacheck, stylua },
 				python = { flake8, black },
-				javascript = { eslint_d, prettier_d },
-				javascriptreact = { eslint_d, prettier_d },
-				typescript = { eslint_d, prettier_d },
-				typescriptreact = { eslint_d, prettier_d },
+				javascript = { eslint, prettier_d },
+				javascriptreact = { eslint, prettier_d },
+				typescript = { eslint, prettier_d },
+				typescriptreact = { eslint, prettier_d },
 				markdown = { prettier_d },
 				html = { prettier_d },
 				css = { prettier_d },
