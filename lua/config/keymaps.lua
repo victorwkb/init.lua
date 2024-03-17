@@ -1,6 +1,5 @@
-local mapkey = require("util.keymapper").mapkey
 local api = vim.api
-local map = require("util.trim").map
+local mapkey = require("util.keymapper").mapkey
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -49,7 +48,7 @@ mapkey(">", "v", ">gv") -- Shift Indentation to Right
 mapkey("<leader>pa", "echo expand('%:p')", "n") -- Show Full File Path
 
 -- Fugitive
-mapkey("<leader>gs", "Git", "n")
+-- mapkey("<leader>gs", "Git", "n")
 
 -- UndotreeToggle
 mapkey("<leader>u", "UndotreeToggle<CR>", "n")
@@ -59,14 +58,21 @@ api.nvim_set_keymap("n", "<C-_>", "gtc", { noremap = false })
 api.nvim_set_keymap("v", "<C-_>", "goc", { noremap = false })
 
 -- Lua
-vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
-vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
-vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
-vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
-vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
-vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
-
--- Trim
-map("n", ",m", function()
-    vim.cmd(":%s/\r//g")
-end)
+vim.keymap.set("n", "<leader>xx", function()
+	require("trouble").toggle()
+end, { desc = "Trouble" })
+vim.keymap.set("n", "<leader>xw", function()
+	require("trouble").toggle("workspace_diagnostics")
+end, { desc = "Workspace Diasnostics" })
+vim.keymap.set("n", "<leader>xd", function()
+	require("trouble").toggle("document_diagnostics")
+end, { desc = "Document Diasnostics" })
+vim.keymap.set("n", "<leader>xq", function()
+	require("trouble").toggle("quickfix")
+end, { desc = "Quickfix" })
+vim.keymap.set("n", "<leader>xl", function()
+	require("trouble").toggle("loclist")
+end, { desc = "Loclist" })
+vim.keymap.set("n", "gR", function()
+	require("trouble").toggle("lsp_references")
+end, { desc = "LSP References" })
