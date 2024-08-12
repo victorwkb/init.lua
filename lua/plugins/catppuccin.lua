@@ -5,7 +5,7 @@ return {
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
-			flavour = "frappe",
+			flavour = "macchiato",
 			transparent_background = true,
 			integrations = {
 				dashboard = true,
@@ -25,12 +25,12 @@ return {
         },
         indent_blankline = {
           enabled = true,
-          scope_color = "frappe", -- catppuccin color (eg. `lavender`) Default: text
+          scope_color = "macchiato", -- catppuccin color (eg. `lavender`) Default: text
           colored_indent_levels = true,
         },
         mini = {
           enabled = true,
-          indentscope_color = "frappe",
+          indentscope_color = "macchiato",
         },
         native_lsp = {
           enabled = true,

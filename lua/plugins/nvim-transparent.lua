@@ -39,6 +39,4 @@ return {
 			exclude_groups = {}, -- table: groups you don't want to clear
 		})
 	end,
-},
-	vim.cmd("autocmd Colorscheme * highlight NvimTreeNormal guibg=none guifg=#9da5b3")
-
+}

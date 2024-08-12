@@ -5,6 +5,7 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.softtabstop = 2
 opt.expandtab = true
+opt.autoindent = true
 opt.smartindent = true
 opt.smarttab = true
 opt.wrap = false
@@ -23,7 +24,7 @@ opt.updatetime = 50
 opt.isfname:append("@-@")
 opt.colorcolumn = "100"
 opt.signcolumn = "yes"
-opt.cmdheight = 1
+opt.cmdheight = 0
 opt.scrolloff = 10
 opt.completeopt = "menuone,noinsert,noselect"
 

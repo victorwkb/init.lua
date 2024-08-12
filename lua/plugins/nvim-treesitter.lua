@@ -101,4 +101,7 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
 	config = config,
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  },
 }

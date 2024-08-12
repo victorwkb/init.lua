@@ -1,13 +1,16 @@
 return {
 	"hrsh7th/nvim-cmp",
+	event = "InsertEnter",
 	config = function()
-		vim.opt.completeopt = { "menu", "menuone", "noselect" }
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
 		require("luasnip.loaders.from_vscode").lazy_load()
 
 		cmp.setup({
+			completion = {
+				completeopt = "menu,menuone,noselect",
+			},
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
@@ -38,18 +41,14 @@ return {
 			-- configure lspkind for vs-code like icons
 			formatting = {
 				format = lspkind.cmp_format({
-					mode = "symbol_text",
-					menu = {
-						buffer = "[B]",
-						nvim_lsp = "[L]",
-						luasnip = "[S]",
-						path = "[P]",
-					},
+          ellipsis_char = "...",
 				}),
 			},
 		})
 	end,
 	dependencies = {
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
 		"onsails/lspkind.nvim",
 		"saadparwaiz1/cmp_luasnip",
 		{
@@ -58,8 +57,7 @@ return {
 			version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 			-- install jsregexp (optional!).
 			build = "make install_jsregexp",
-
-			dependencies = { "rafamadriz/friendly-snippets" },
 		},
+		"rafamadriz/friendly-snippets",
 	},
 }
