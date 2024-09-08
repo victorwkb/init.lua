@@ -25,8 +25,8 @@ local config = function()
 				workspace = {
 					-- make language server aware of runtime files
 					library = {
-						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-						[vim.fn.stdpath("config") .. "/lua"] = true,
+						vim.fn.expand("$VIMRUNTIME/lua"),
+						vim.fn.expand("$XDG_CONFIG_HOME") .. "/nvim/lua",
 					},
 				},
 			},
@@ -51,7 +51,7 @@ local config = function()
 	})
 
 	-- typescript
-	lspconfig.tsserver.setup({
+	lspconfig.ts_ls.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
 		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
@@ -70,12 +70,23 @@ local config = function()
 		},
 	})
 
+	-- terraform
+	lspconfig.terraformls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = {
+			"terraform",
+			"terraform-vars",
+		},
+	})
+
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 	local flake8 = require("efmls-configs.linters.flake8")
 	local black = require("efmls-configs.formatters.black")
 	local eslint = require("efmls-configs.linters.eslint")
 	local prettier_d = require("efmls-configs.formatters.prettier_d")
+	local terraform_fmt = require("efmls-configs.formatters.terraform_fmt")
 
 	-- configure efm server
 	lspconfig.efm.setup({
@@ -89,6 +100,8 @@ local config = function()
 			"markdown",
 			"html",
 			"css",
+			"terraform",
+			"tf",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -109,6 +122,8 @@ local config = function()
 				markdown = { prettier_d },
 				html = { prettier_d },
 				css = { prettier_d },
+				terraform = { terraform_fmt },
+				tf = { terraform_fmt },
 			},
 		},
 	})

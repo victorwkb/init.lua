@@ -4,19 +4,13 @@ local config = function()
 		indent = {
 			enable = true,
 		},
-		autotag = {
-			enable = true,
-			enable_rename = true,
-			enable_close = true,
-			enable_close_on_slash = true,
-		},
 		event = {
 			"BufReadPre",
 			"BufNewFile",
 		},
 		ensure_installed = {
 			"markdown",
-      "markdown_inline",
+			"markdown_inline",
 			"json",
 			"yaml",
 			"bash",
@@ -28,6 +22,7 @@ local config = function()
 			"typescript",
 			"html",
 			"css",
+			"terraform",
 		},
 		auto_install = true,
 		highlight = {
@@ -51,7 +46,7 @@ local config = function()
 					["af"] = "@function.outer",
 					["if"] = "@function.inner",
 					["ac"] = "@class.outer",
-          ["ic"] = "@class.inner",
+					["ic"] = "@class.inner",
 					["ii"] = "@conditional.inner",
 					["ai"] = "@conditional.outer",
 					["il"] = "@loop.inner",
@@ -101,7 +96,8 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
 	config = config,
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-  },
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		"windwp/nvim-ts-autotag",
+	},
 }
