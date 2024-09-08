@@ -1,7 +1,7 @@
 local api = vim.api
 local mapkey = require("util.keymapper").mapkey
 
-vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk"})
+vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "J", "mzJ`z")
@@ -24,8 +24,6 @@ vim.keymap.set("n", "<leader>bf", vim.lsp.buf.format)
 
 -- Replace word under cursor
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Quick fix navigation
 
 -- Buffer Navigation
 mapkey("<leader>bn", "bnext", "n") -- Next buffer
@@ -55,5 +53,5 @@ mapkey("<leader>pa", "echo expand('%:p')", "n") -- Show Full File Path
 mapkey("<leader>u", "UndotreeToggle<CR>", "n")
 
 -- Comments
-api.nvim_set_keymap("n", "<C-_>", "gtc", { noremap = false })
-api.nvim_set_keymap("v", "<C-_>", "goc", { noremap = false })
+api.nvim_set_keymap("n", "<C-/>", "gcc", { noremap = false })
+api.nvim_set_keymap("v", "<C-/>", "gb", { noremap = false })
