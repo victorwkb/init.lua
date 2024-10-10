@@ -3,7 +3,7 @@ local opts = {
 		"efm",
 		"pyright",
 		"lua_ls",
-		"tsserver",
+		"ts_ls",
 		"html",
 		"cssls",
 		"jsonls",

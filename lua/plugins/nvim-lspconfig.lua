@@ -80,6 +80,15 @@ local config = function()
 		},
 	})
 
+	-- nix
+	lspconfig.nil_ls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = {
+			"nix",
+		},
+	})
+
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 	local flake8 = require("efmls-configs.linters.flake8")
@@ -87,6 +96,7 @@ local config = function()
 	local eslint = require("efmls-configs.linters.eslint")
 	local prettier_d = require("efmls-configs.formatters.prettier_d")
 	local terraform_fmt = require("efmls-configs.formatters.terraform_fmt")
+	local nixfmt = require("efmls-configs.formatters.nixfmt")
 
 	-- configure efm server
 	lspconfig.efm.setup({
@@ -102,6 +112,7 @@ local config = function()
 			"css",
 			"terraform",
 			"tf",
+			"nix",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -124,6 +135,7 @@ local config = function()
 				css = { prettier_d },
 				terraform = { terraform_fmt },
 				tf = { terraform_fmt },
+				nix = { nixfmt },
 			},
 		},
 	})
