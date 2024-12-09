@@ -16,11 +16,11 @@ return {
 				telescope = true,
 			},
 		})
-		vim.keymap.set("n", "<leader>gs", ":Neogit<CR>", { silent = true, noremap = true })
-		vim.keymap.set("n", "<leader>cc", ":Neogit commit", { silent = true, noremap = true })
-		vim.keymap.set("n", "<leader>gp", ":Neogit pull<CR>", { silent = true, noremap = true })
-		vim.keymap.set("n", "<leader>gP", ":Neogit push<CR>", { silent = true, noremap = true })
-		vim.keymap.set("n", "<leader>gb", ":Neogit git_branches<CR>", { silent = true, noremap = true })
-		vim.keymap.set("n", "<leader>gB", ":G blame<CR>", { silent = true, noremap = true })
+		-- vim.keymap.set("n", "<leader>gs", ":Neogit<CR>", { silent = true, noremap = true })
+		-- vim.keymap.set("n", "<leader>cc", ":Neogit commit", { silent = true, noremap = true })
+		-- vim.keymap.set("n", "<leader>gp", ":Neogit pull<CR>", { silent = true, noremap = true })
+		-- vim.keymap.set("n", "<leader>gP", ":Neogit push<CR>", { silent = true, noremap = true })
+		-- vim.keymap.set("n", "<leader>gb", ":Neogit git_branches<CR>", { silent = true, noremap = true })
+		-- vim.keymap.set("n", "<leader>gB", ":G blame<CR>", { silent = true, noremap = true })
 	end,
 }
