@@ -71,14 +71,14 @@ local config = function()
 	})
 
 	-- terraform
-	lspconfig.terraformls.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		filetypes = {
-			"terraform",
-			"terraform-vars",
-		},
-	})
+	-- lspconfig.terraformls.setup({
+	-- 	capabilities = capabilities,
+	-- 	on_attach = on_attach,
+	-- 	filetypes = {
+	-- 		"terraform",
+	-- 		"terraform-vars",
+	-- 	},
+	-- })
 
 	-- nix
 	lspconfig.nil_ls.setup({
@@ -95,7 +95,7 @@ local config = function()
 	local black = require("efmls-configs.formatters.black")
 	local eslint = require("efmls-configs.linters.eslint")
 	local prettier_d = require("efmls-configs.formatters.prettier_d")
-	local terraform_fmt = require("efmls-configs.formatters.terraform_fmt")
+	-- local terraform_fmt = require("efmls-configs.formatters.terraform_fmt")
 	local nixfmt = require("efmls-configs.formatters.nixfmt")
 
 	-- configure efm server
@@ -110,7 +110,7 @@ local config = function()
 			"markdown",
 			"html",
 			"css",
-			"terraform",
+			-- "terraform",
 			"tf",
 			"nix",
 		},
@@ -133,8 +133,8 @@ local config = function()
 				markdown = { prettier_d },
 				html = { prettier_d },
 				css = { prettier_d },
-				terraform = { terraform_fmt },
-				tf = { terraform_fmt },
+				-- terraform = { terraform_fmt },
+				-- tf = { terraform_fmt },
 				nix = { nixfmt },
 			},
 		},

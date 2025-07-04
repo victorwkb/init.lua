@@ -22,7 +22,7 @@ local config = function()
 			"typescript",
 			"html",
 			"css",
-			"terraform",
+			-- "terraform",
 		},
 		auto_install = true,
 		highlight = {

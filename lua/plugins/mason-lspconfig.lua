@@ -9,7 +9,7 @@ local opts = {
 		"jsonls",
 		"emmet_ls",
 		"tailwindcss",
-    "terraformls",
+    -- "terraformls",
 	},
 	automatic_installation = true,
 }
