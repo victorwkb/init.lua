@@ -123,6 +123,7 @@ local config = function()
 			completion = true,
 		},
 		settings = {
+      rootMarkers = { ".git/" },
 			languages = {
 				lua = { luacheck, stylua },
 				python = { flake8, black },

@@ -16,7 +16,7 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 mapkey("<C-c>", "<Esc>", "i")
-mapkey("Q", "<nop>", "n") -- Disable macros
+mapkey("q", "<nop>", "n") -- Disable macros
 
 -- Tmux commands
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")

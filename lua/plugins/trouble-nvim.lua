@@ -1,8 +1,15 @@
+local diagnostic_signs = require("util.lsp").diagnostic_signs
+
 return {
 	"folke/trouble.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	opts = {
-		use_diagnostic_signs = true,
+		signs = {
+			error = diagnostic_signs.Error,
+			warning = diagnostic_signs.Warn,
+			hint = diagnostic_signs.Hint,
+			information = diagnostic_signs.Info,
+		},
 	}, -- for default options, refer to the configuration section for custom setup.
 	cmd = "Trouble",
 	keys = {

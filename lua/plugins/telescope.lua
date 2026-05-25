@@ -17,7 +17,7 @@ local config = function()
 			},
 		},
 	})
-  telescope.load_extension("fzf")
+	telescope.load_extension("fzf")
 end
 
 return {
@@ -26,7 +26,7 @@ return {
 	lazy = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = config,
